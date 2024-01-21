@@ -11,7 +11,8 @@ void bubble_sort(int *array, size_t size)
 	int temp = 0;
 	listint_t **h = malloc(sizeof(listint_t));
 
-
+	if (!array || !size)
+		return;
 	for (i = 0; i < size; i++)
 	{
 		int swapped = 0;
