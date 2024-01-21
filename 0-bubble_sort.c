@@ -4,11 +4,12 @@
  * add_to_list - adds elements to list
  * @head: head of the list
  * @num: int to be added
+ * @lNode: the last node of the list
  * Return: returns the new node added
 */
-listint_t *add_to_list(listint_t **head, const int num)
+listint_t *add_to_list(listint_t **head, listint_t *lNode, const int num)
 {
-	listint_t *temp = malloc(sizeof(listint_t)), *h = *head;
+	listint_t *temp = malloc(sizeof(listint_t));
 	int *p;
 
 	if (temp == NULL)
@@ -29,13 +30,8 @@ listint_t *add_to_list(listint_t **head, const int num)
 	}
 	else
 	{
-		while (h->next != NULL)
-		{
-			h = h->next;
-		}
-
-		temp->prev = h;
-		h->next = temp;
+		temp->prev = lNode;
+		lNode->next = temp;
 	}
 
 	return (temp);
@@ -51,10 +47,12 @@ listint_t *create_list_from_array(int *array, size_t size)
 {
 	listint_t *head = NULL;
 	size_t j;
+	listint_t *lNode = head;
 
 	for (j = 0; j < size; j++)
 	{
-		add_to_list(&head, array[j]);
+		lNode = add_to_list(&head, lNode, array[j]);
+
 	}
 
 	return (head);
@@ -71,11 +69,6 @@ void bubble_sort(int *array, size_t size)
 	int temp = 0;
 	listint_t **h = malloc(sizeof(listint_t));
 
-
-	for (i = 0; i < size; i++)
-	{
-		add_to_list(h, array[i]);
-	}
 
 	for (i = 0; i < size; i++)
 	{
