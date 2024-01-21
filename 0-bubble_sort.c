@@ -2,7 +2,6 @@
 
 /**
  * add_to_list - adds elements to list
- *              in ascending order using the Bubble sort algorithm
  * @head: head of the list
  * @num: int to be added
  * Return: returns the new node added
@@ -41,6 +40,7 @@ listint_t *add_to_list(listint_t **head, const int num)
 
 	return (temp);
 }
+
 /**
  * create_list_from_array - creates a list
  * @array: array to be converted to list
@@ -59,44 +59,54 @@ listint_t *create_list_from_array(int *array, size_t size)
 
 	return (head);
 }
+
 /**
  * bubble_sort - sorts an array of integers
- *              in ascending order using the Bubble sort algorithm
- * @array: arrat to be sorted
- * @size: size of  the array
+ * @array: array to be sorted
+ * @size: size of the array
 */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0;
+	size_t i, j;
 	int temp = 0;
 	listint_t **h = malloc(sizeof(listint_t));
+
 
 	for (i = 0; i < size; i++)
 	{
 		add_to_list(h, array[i]);
 	}
 
-	for (j = 0; j < size; j++)
+	for (i = 0; i < size; i++)
 	{
+		int swapped = 0;
 
-		for (i = 0 ; i < size - 1; i++)
+		for (j = 0; j < size - i - 1; j++)
 		{
-			if (array[i] > array[i + 1])
+			if (array[j] > array[j + 1])
 			{
-				temp  = array[i];
-				array[i]  = array[i + 1];
-				array[i + 1] = temp;
+				temp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = temp;
+				swapped = 1;
 				*h = create_list_from_array(array, size);
 				print_list(*h);
 			}
 		}
 
+		if (!swapped)
+		{
+			break;
+		}
 
 	}
+
+	free(*h);
+	free(h);
 }
+
 /**
  * print_list - Prints a list of integers
- *
  * @list: The list to be printed
  */
 void print_list(const listint_t *list)
