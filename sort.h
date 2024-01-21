@@ -30,5 +30,11 @@ void print_list(const listint_t *list);
  * @size: Number of elements in @array
  */
 void print_array(const int *array, size_t size);
-
+/**
+ * bubble_sort - sorts an array of integers 
+ *              in ascending order using the Bubble sort algorithm
+ * @array: arrat to be sorted
+ * @size: size of  the array
+*/
+ void bubble_sort(int *array, size_t size);
 #endif
