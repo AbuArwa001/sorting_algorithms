@@ -12,9 +12,9 @@
  */
 typedef struct listint_s
 {
-    const int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+	const int n;
+	struct listint_s *prev;
+	struct listint_s *next;
 } listint_t;
 /**
  * print_list - Prints a list of integers
@@ -31,10 +31,15 @@ void print_list(const listint_t *list);
  */
 void print_array(const int *array, size_t size);
 /**
- * bubble_sort - sorts an array of integers 
+ * bubble_sort - sorts an array of integers
  *              in ascending order using the Bubble sort algorithm
  * @array: arrat to be sorted
  * @size: size of  the array
 */
- void bubble_sort(int *array, size_t size);
+void bubble_sort(int *array, size_t size);
+/**
+* vinsertion_sort_list - sort a list with insertion method
+* @list: a list to sort
+*/
+void insertion_sort_list(listint_t **list);
 #endif
