@@ -49,4 +49,10 @@ void insertion_sort_list(listint_t **list);
  * @size: size of the array
 */
 void selection_sort(int *array, size_t size);
+/**
+ * quick_sort - sorts an array in segments and recursion
+ * @array: array to be sorted
+ * @size: size of the array
+*/
+void quick_sort(int *array, size_t size);
 #endif
