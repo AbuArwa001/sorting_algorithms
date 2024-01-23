@@ -29,17 +29,18 @@ size_t partition(int *array, size_t size, size_t original_size, int *org_array)
 	{
 		if (array[i] < pivot)
 		{
-			swap(&array[i], &array[partition_index]);
 			if (&array[i] != &array[partition_index])
 			{
+				swap(&array[i], &array[partition_index]);
 				print_array(org_array, original_size);
 			}
 			partition_index++;
 		}
 	}
-	swap(&array[partition_index], &array[size - 1]);
+
 	if (&array[size - 1] != &array[partition_index])
 	{
+		swap(&array[partition_index], &array[size - 1]);
 		print_array(org_array, original_size);
 	}
 
@@ -74,6 +75,11 @@ void quick_sort(int *array, size_t size)
 {
 	size_t original_size = size;
 	int *org_array = array;
+
+	if (array == NULL || size == 0)
+	{
+		return;
+	}
 
 	q_sort(array, size, original_size, org_array);
 }
