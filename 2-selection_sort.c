@@ -7,14 +7,15 @@
 */
 void selection_sort(int *array, size_t size)
 {
-	int least = 0, temp = 0, j = 0, i = 0, swapped = 0;
+	size_t j = 0, i = 0;
+    int least = 0, swapped = 0,temp = 0;
 
 	for (j = 0; j < size; j++)
 	{
 		swapped = 0;
 		least = array[j];
 
-		for (int i = j + 1; i < size; i++)
+		for (i = j + 1; i < size; i++)
 		{
 			if (array[i] < least)
 			{
@@ -22,6 +23,7 @@ void selection_sort(int *array, size_t size)
 				least = array[i];
 				array[i] = temp;
 				swapped = 1;
+                print_array(array, size);
 			}
 
 		}
