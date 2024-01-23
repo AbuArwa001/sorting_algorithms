@@ -1,21 +1,4 @@
 #include "sort.h"
-void print_array_q(const int *array, int start, int end)
-{
-	size_t i;
-
-	i = 0;
-
-	while (array && start <= end)
-	{
-		if (i > 0)
-			printf(", ");
-
-		printf("%d", array[start]);
-		++start;
-	}
-
-	printf("\n");
-}
 
 /**
  * swap - swaps the values of two integers
