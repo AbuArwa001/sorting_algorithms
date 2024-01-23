@@ -42,4 +42,11 @@ void bubble_sort(int *array, size_t size);
 * @list: a list to sort
 */
 void insertion_sort_list(listint_t **list);
+/**
+ * selection_sort - sorts by selectin least elements
+ *                  and placing them infron
+ * @array: array to be sorted
+ * @size: size of the array
+*/
+void selection_sort(int *array, size_t size);
 #endif
