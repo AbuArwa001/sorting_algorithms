@@ -25,6 +25,8 @@ size_t partition(int *array, size_t size, size_t original_size, int *org_array)
 	int pivot = array[size - 1];
 	size_t partition_index = 0, i = 0;
 
+	(void) org_array;
+	(void) original_size;
 	for (i = 0; i < size - 1; i++)
 	{
 		if (array[i] < pivot)
