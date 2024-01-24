@@ -69,4 +69,11 @@ void shell_sort(int *array, size_t size);
  * @list: double pointer to the head of the list
  */
 void cocktail_sort_list(listint_t **list);
+/**
+ * merge_sort - sorts an array of integers
+ *               in ascending order using the Merge sort algorithm
+ * @array: array to be sorted
+ * @size: size of the array
+*/
+void merge_sort(int *array, size_t size);
 #endif
