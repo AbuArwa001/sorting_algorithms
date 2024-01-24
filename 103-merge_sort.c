@@ -11,31 +11,41 @@
  */
 void TopDownMerge(int *arrayB, int iBegin, int iMiddle, int iEnd, int *array)
 {
-    int i = iBegin, j = iMiddle, k = 0;
+	int i = iBegin, j = iMiddle, k = 0;
 
-    /* While there are elements in the left or right runs... */
-    printf("Merging...\n");
-    for (k = iBegin; k < iEnd; k++) {
-        /* If left run head exists and is <= existing right run head. */
-        if (i < iMiddle && (j >= iEnd || array[i] <= array[j])) {
-            printf("[left]: %d\n", array[i]);
-            arrayB[k] = array[i];
-            i = i + 1;
-        } else {
-            printf("[right]: %d\n", array[j]);
-            arrayB[k] = array[j];
-            j = j + 1;
-        }
-    }
+	/* While there are elements in the left or right runs... */
+	printf("Merging...\n");
 
-    printf("[Done]: ");
-    for (k = iBegin; k < iEnd; k++) {
-        printf("%d", arrayB[k]);
-        if (k < iEnd - 1) {
-            printf(", ");
-        }
-    }
-    printf("\n");
+	for (k = iBegin; k < iEnd; k++)
+	{
+		/* If left run head exists and is <= existing right run head. */
+		if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
+		{
+			printf("[left]: %d\n", array[i]);
+			arrayB[k] = array[i];
+			i = i + 1;
+		}
+		else
+		{
+			printf("[right]: %d\n", array[j]);
+			arrayB[k] = array[j];
+			j = j + 1;
+		}
+	}
+
+	printf("[Done]: ");
+
+	for (k = iBegin; k < iEnd; k++)
+	{
+		printf("%d", arrayB[k]);
+
+		if (k < iEnd - 1)
+		{
+			printf(", ");
+		}
+	}
+
+	printf("\n");
 }
 
 /**
