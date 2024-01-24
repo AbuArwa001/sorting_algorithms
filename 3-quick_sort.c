@@ -27,7 +27,7 @@ size_t partition(int *array, size_t size, size_t original_size, int *org_array)
 
 	for (i = 0; i < size - 1; i++)
 	{
-		if (array[i] < pivot)
+		if (array[i] <= pivot)
 		{
 			if (&array[i] != &array[partition_index])
 			{
@@ -37,9 +37,10 @@ size_t partition(int *array, size_t size, size_t original_size, int *org_array)
 			partition_index++;
 		}
 	}
+
 	if (&array[size - 1] != &array[partition_index])
 	{
-		swap(&array[partition_index], &array[size - 1]);
+		swap(&array[i], &array[partition_index]);
 		print_array(org_array, original_size);
 	}
 
