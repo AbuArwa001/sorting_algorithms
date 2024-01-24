@@ -64,7 +64,8 @@ void quick_sort(int *array, size_t size);
 */
 void shell_sort(int *array, size_t size);
 /**
- * cocktail_sort_list - sorts a doubly linked list using Cocktail Sort algorithm
+ * cocktail_sort_list - sorts a doubly
+ *          linked list using Cocktail Sort algorithm
  * @list: double pointer to the head of the list
  */
 void cocktail_sort_list(listint_t **list);
