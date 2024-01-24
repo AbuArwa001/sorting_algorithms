@@ -76,4 +76,11 @@ void cocktail_sort_list(listint_t **list);
  * @size: size of the array
 */
 void merge_sort(int *array, size_t size);
+/**
+ * counting_sort - sorts an array of integers
+ *                 in ascending order using the Counting sort algorithm
+ * @array: array to be sorted;
+ * @size: size of the array
+*/
+void counting_sort(int *array, size_t size);
 #endif
