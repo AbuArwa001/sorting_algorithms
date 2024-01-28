@@ -58,12 +58,12 @@ void _counting_sort(int *array, size_t size, int mod)
  */
 void radix_sort(int *array, size_t size)
 {
-	int max = array[0];
+	int max = 0;
 	size_t i = 0;
 
 	if (array == NULL || size <= 1)
 		return;
-
+	max = array[0];
 	/* // Find the maximum value in the array */
 	for (i = 0; i < size; i++)
 	{
