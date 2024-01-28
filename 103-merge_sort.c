@@ -1,5 +1,28 @@
 #include "sort.h"
+/**
+ * printArray - Prints the elements of an array.
+ * @label: Label to be printed before the array.
+ * @arr: Array to be printed.
+ * @length: Length of the array.
+ */
+void printArray(const char *label, int *arr, int length)
+{
+	int k;
 
+	printf("[%s]: ", label);
+
+	for (k = 0; k < length; k++)
+	{
+		printf("%d", arr[k]);
+
+		if (k < length - 1)
+		{
+			printf(", ");
+		}
+	}
+
+	printf("\n");
+}
 /**
  * TopDownMerge - Merges two halves of an array.
  * @arrayB: Temporary array for merging.
@@ -11,7 +34,8 @@
  */
 void TopDownMerge(int *arrayB, int iBegin, int iMiddle, int iEnd, int *array)
 {
-	int i = iBegin, j = iMiddle, k = 0;
+	int i = iBegin, j = iMiddle, k = 0, l = 0, r = 0;
+	int *left = malloc(sizeof(int) * iEnd), *right = malloc(sizeof(int) * iEnd);
 
 	/* While there are elements in the left or right runs... */
 	printf("Merging...\n");
@@ -21,18 +45,22 @@ void TopDownMerge(int *arrayB, int iBegin, int iMiddle, int iEnd, int *array)
 		/* If left run head exists and is <= existing right run head. */
 		if (i < iMiddle && (j >= iEnd || array[i] <= array[j]))
 		{
-			printf("[left]: %d\n", array[i]);
+			left[l] = array[i];
 			arrayB[k] = array[i];
 			i = i + 1;
+			l++;
 		}
 		else
 		{
-			printf("[right]: %d\n", array[j]);
+			right[r] = array[j];
 			arrayB[k] = array[j];
 			j = j + 1;
+			r++;
 		}
 	}
 
+	printArray("left", left, l);
+	printArray("right", right, r);
 	printf("[Done]: ");
 
 	for (k = iBegin; k < iEnd; k++)
@@ -40,12 +68,12 @@ void TopDownMerge(int *arrayB, int iBegin, int iMiddle, int iEnd, int *array)
 		printf("%d", arrayB[k]);
 
 		if (k < iEnd - 1)
-		{
 			printf(", ");
-		}
 	}
 
 	printf("\n");
+	free(left);
+	free(right);
 }
 
 /**
