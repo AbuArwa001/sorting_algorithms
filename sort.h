@@ -90,4 +90,10 @@ void counting_sort(int *array, size_t size);
  * @size: size of the array
 */
 void radix_sort(int *array, size_t size);
+/**
+ * quick_sort_hoare - sorts an array using the quicksort algorithm
+ * @array: array to be sorted
+ * @size: size of the array
+ */
+void quick_sort_hoare(int *array, size_t size);
 #endif
